@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lab4 – Exercise 2</title>
+	</head>
+	<body>
+		<h1>JavaScript Lab - Simple Calculator</h1>
+			<script>
+				console.log("=== Declaring Functions ===");
+				function add(num1, num2) {
+					return num1 + num2;
+				}
+				function subtract(num1, num2) {
+					return num1 - num2;
+				}
+				console.log("Add 5 + 3:", add(5, 3));
+				console.log("Subtract 8 - 2:", subtract(8, 2));
+				
+				
+				console.log("\n=== Using Default Parameters ===");
+				function addWithDefault(num1, num2 = 0) {
+					return num1 + num2;
+				}
+				function subtractWithDefault(num1, num2 = 0) {
+					return num1 - num2;
+				}
+				console.log("Add with default (5):", addWithDefault(5));
+				console.log("Add with two args (5 + 7):", addWithDefault(5, 7));
+				console.log("Subtract with default (10):", subtractWithDefault(10));
+				console.log("Subtract with two args (10 - 4):", subtractWithDefault(10, 4));
+				
+				
+				console.log("\n=== Implementing Arrow Functions ===");
+				const addArrow = (num1, num2 = 0) => num1 + num2;
+				const subtractArrow = (num1, num2 = 0) => num1 - num2;
+				const multiply = (num1, num2) => num1 * num2;
+				const divide = (num1, num2) => {
+					if (num2 === 0) {
+						return "Error: Division by zero is not allowed.";
+					}
+					return num1 / num2;
+				};
+				console.log("Arrow Add (4 + 2):", addArrow(4, 2));
+				console.log("Arrow Subtract (10 - 5):", subtractArrow(10, 5));
+				console.log("Multiply (3 * 7):", multiply(3, 7));
+				console.log("Divide (20 / 4):", divide(20, 4));
+				console.log("Divide (20 / 0):", divide(20, 0));
+				
+				
+				console.log("\n=== Understanding Callback Functions ===");
+				function calculator(num1, num2, operationCallback) {
+					return operationCallback(num1, num2);
+				}
+				console.log("Calculator Add (3 + 5):", calculator(3, 5, addArrow));
+				console.log("Calculator Multiply (6 * 4):", calculator(6, 4, multiply));
+			</script>
+	</body>
+</html>
